@@ -1,0 +1,33 @@
+@import '~normalize.css';
+@import '~@blueprintjs/icons/lib/css/blueprint-icons.css';
+@import '~@blueprintjs/core/lib/css/blueprint.css';
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-size: 16px;
+}
+
+.bp3-navbar {
+  height: 4rem;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.bp3-panel-stack2 {
+  height: calc(100% - 4rem);
+  overflow-y: auto;
+
+  .bp3-panel-stack-view {
+    width: 100%;
+    max-width: 928px;
+    margin: 0 auto;
+    border-right: none;
+    padding: 0 1.5rem;
+  }
+}
