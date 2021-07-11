@@ -16,7 +16,7 @@ const AdditionalInformationStep = (props: PanelProps<ViewProps>) => {
         description="If the product needs it, you can enter extra information below."
       />
 
-      <FormGroup label="Description" labelFor="description-input">
+      <FormGroup label="Description" labelInfo="(Optional)" labelFor="description-input">
         <TextArea
           id="description-input"
           placeholder="Your product's extra information"
