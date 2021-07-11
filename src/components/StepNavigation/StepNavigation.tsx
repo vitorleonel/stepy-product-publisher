@@ -22,7 +22,7 @@ const StepNavigation = ({
         rightIcon="arrow-right"
         text={nextText || 'Next'}
         large
-        intent="primary"
+        intent="success"
         disabled={nextDisabled}
         onClick={nextHandler}
       />
