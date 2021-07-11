@@ -8,7 +8,9 @@ const Navbar = () => {
         <h1>Product Publisher</h1>
       </NavbarHeading>
 
-      <Button icon="log-out" text="Log out" minimal  />
+      <a href="https://github.com/vitorleonel/stepy-product-publisher" target="_blank" rel="noopener noreferrer">
+        <Button icon="git-repo" text="GitHub Repository" minimal large />
+      </a>
     </NavbarContainer>
   );
 }
