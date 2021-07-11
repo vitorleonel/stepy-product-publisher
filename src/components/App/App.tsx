@@ -11,7 +11,6 @@ const App = () => {
       <PanelStack2
         className="steps"
         initialPanel={{ renderPanel: CategoryStep }}
-        renderActivePanelOnly={true}
         showPanelHeader={false}
       />
     </>
