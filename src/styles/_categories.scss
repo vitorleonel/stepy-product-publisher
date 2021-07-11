@@ -1,9 +1,9 @@
 .categories {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 
   &-item {
-    flex-grow: 1;
     margin: 0 0 1.5rem;
 
     p {
@@ -16,11 +16,12 @@
 @media screen and (min-width: 48rem) {
   .categories {
     flex-direction: row;
-    margin: 0 -1rem;
+    margin: -1rem;
 
     &-item {
-      width: 33%;
-      margin: 0 1rem;
+      width: 100%;
+      max-width: calc(33.33% - 2rem);
+      margin: 1rem;
     }
   }
 }

@@ -16,8 +16,9 @@ const CategoryStep = (props: PanelProps<{}>): JSX.Element => {
   const getCategories = () => {
     setCategories([
       { id: 1, name: 'Fashion', description: 'T-shirts, pants, underwear and more.' },
-      { id: 2, name: 'Vehicles', description: 'Cars, trucks, motorcycle and more.' },
+      { id: 2, name: 'Food', description: 'Dairy, beverage and more.' },
       { id: 3, name: 'Technology', description: 'Cell phones, tablets, computers and more.' },
+      { id: 4, name: 'Vehicles', description: 'Cars, trucks, motorcycle and more.' },
     ]);
   }
 
