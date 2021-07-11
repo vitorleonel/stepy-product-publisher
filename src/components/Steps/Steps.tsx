@@ -12,6 +12,7 @@ const Steps = (): JSX.Element => {
       className="steps"
       initialPanel={initialPanel}
       showPanelHeader={false}
+      renderActivePanelOnly
     />
   );
 }
