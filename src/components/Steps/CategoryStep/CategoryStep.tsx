@@ -31,7 +31,7 @@ const CategoryStep = (props: PanelProps<{}>): JSX.Element => {
   return (
     <section className="steps-item">
       <StepHeader
-        title="Choose a category below"
+        title="Choose a category"
         description="Choose a category that best represents your product to start the publish process."
       />
 
