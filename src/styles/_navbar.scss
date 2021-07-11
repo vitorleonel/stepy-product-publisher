@@ -1,0 +1,27 @@
+.bp3-navbar {
+  height: 4.5rem;
+  padding: 0 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bp3-navbar-heading {
+  display: flex;
+  align-items: center;
+
+  img {
+    height: 1.5rem;
+  }
+
+  h1 {
+    color: #394b59; //dark-gray-5
+    font-weight: 500;
+    font-size: 1rem;
+
+    border-left: 2px solid #ced9e0; // light-gray-1
+    padding-left: 0.5rem;
+    margin-left: 0.5rem;
+  }
+}
