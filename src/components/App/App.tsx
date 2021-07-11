@@ -1,18 +1,11 @@
-import { PanelStack2 } from "@blueprintjs/core";
-
 import Navbar from "../Navbar";
-import CategoryStep from "../Steps/CategoryStep";
+import Steps from "../Steps";
 
 const App = () => {
   return (
     <>
       <Navbar />
-
-      <PanelStack2
-        className="steps"
-        initialPanel={{ renderPanel: CategoryStep }}
-        showPanelHeader={false}
-      />
+      <Steps />
     </>
   );
 }
