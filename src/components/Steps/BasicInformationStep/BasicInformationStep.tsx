@@ -18,7 +18,7 @@ const BasicInformationStep = (props: PanelProps<ViewProps>) => {
   const openPanel = () => props.openPanel({
     renderPanel: ImagesStep,
     props: {
-      category: props.category,
+      ...props,
       title,
       description,
       price,
