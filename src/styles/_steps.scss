@@ -5,7 +5,7 @@
   .bp3-panel-stack-view {
     width: 100%;
     max-width: 48rem;
-    padding: 3rem 2rem;
+    padding: 2rem;
     margin: 0 auto;
     background-color: transparent;
     border-right: transparent;
@@ -18,6 +18,14 @@
 
     p {
       color: #5c7080; // gray-1
+    }
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  .steps {
+    .bp3-panel-stack-view {
+      padding: 3rem 2rem;
     }
   }
 }
