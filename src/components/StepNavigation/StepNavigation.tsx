@@ -5,6 +5,7 @@ import { ViewProps } from "./interfaces";
 const StepNavigation = ({
   prevText,
   nextText,
+  nextIcon,
   nextDisabled,
   prevHandler,
   nextHandler,
@@ -19,7 +20,7 @@ const StepNavigation = ({
       />
 
       <Button
-        rightIcon="arrow-right"
+        rightIcon={nextIcon || 'arrow-right'}
         text={nextText || 'Next'}
         large
         intent="success"
