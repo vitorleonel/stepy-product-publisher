@@ -8,7 +8,12 @@ const App = () => {
     <>
       <Navbar />
 
-      <PanelStack2 initialPanel={{ renderPanel: CategoryStep }} renderActivePanelOnly={true} showPanelHeader={false} />
+      <PanelStack2
+        className="steps"
+        initialPanel={{ renderPanel: CategoryStep }}
+        renderActivePanelOnly={true}
+        showPanelHeader={false}
+      />
     </>
   );
 }

@@ -1,0 +1,23 @@
+.steps {
+  height: calc(100% - 4.5rem);
+  overflow-y: auto;
+
+  .bp3-panel-stack-view {
+    width: 100%;
+    max-width: 48rem;
+    padding: 3rem 2rem;
+    margin: 0 auto;
+    background-color: transparent;
+    border-right: transparent;
+  }
+}
+
+.steps-item {
+  &__header {
+    margin-bottom: 2.5rem;
+
+    p {
+      color: #5c7080; // gray-1
+    }
+  }
+}

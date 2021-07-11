@@ -3,6 +3,7 @@
 @import '~@blueprintjs/core/lib/css/blueprint.css';
 
 @import 'navbar';
+@import 'steps';
 
 html,
 body,
@@ -12,18 +13,6 @@ body,
 
 body {
   font-size: 16px;
+  background-color: #f5f8fa;
   color: #182026; // dark-gray-1
-}
-
-.bp3-panel-stack2 {
-  height: calc(100% - 4.5rem);
-  overflow-y: auto;
-
-  .bp3-panel-stack-view {
-    width: 100%;
-    max-width: 928px;
-    margin: 0 auto;
-    border-right: none;
-    padding: 0 1.5rem;
-  }
 }
