@@ -10,17 +10,38 @@ body,
 
 body {
   font-size: 16px;
+  color: #182026; // dark-gray-1
 }
 
 .bp3-navbar {
-  height: 4rem;
-  padding: 0 1.5rem;
+  height: 5rem;
+  padding: 0 2rem;
   display: flex;
   align-items: center;
+  box-shadow: none;
+}
+
+.bp3-navbar-heading {
+  display: flex;
+  align-items: center;
+
+  img {
+    height: 1.5rem;
+  }
+
+  h1 {
+    color: #394b59; //dark-gray-5
+    font-weight: 500;
+    font-size: 1rem;
+
+    border-left: 2px solid #ced9e0; // light-gray-1
+    padding-left: 0.5rem;
+    margin-left: 0.5rem;
+  }
 }
 
 .bp3-panel-stack2 {
-  height: calc(100% - 4rem);
+  height: calc(100% - 6rem);
   overflow-y: auto;
 
   .bp3-panel-stack-view {

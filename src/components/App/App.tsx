@@ -7,7 +7,8 @@ const App = () => {
     <>
       <Navbar>
         <NavbarHeading>
-          <strong>Stepy</strong> / Product Publisher
+          <img src="/images/brand.svg" alt="Stepy" />
+          <h1>Product Publisher</h1>
         </NavbarHeading>
       </Navbar>
 
