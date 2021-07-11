@@ -39,7 +39,7 @@ const CategoryStep = (props: PanelProps<{}>): JSX.Element => {
         {categories.map((category, index) => (
           <Card className="categories-item" interactive={true} onClick={() => openPanel(category)} key={index}>
             <h4 className="bp3-heading">{category.name}</h4>
-            <p className="bp3-ui-text">{category.description}</p>
+            <p className="bp3-running-text bp3-text-large">{category.description}</p>
           </Card>
         ))}
       </div>
