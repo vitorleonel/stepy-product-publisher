@@ -6,6 +6,7 @@ const StepNavigation = ({
   prevText,
   nextText,
   nextIcon,
+  nextLoading,
   nextDisabled,
   prevHandler,
   nextHandler,
@@ -24,6 +25,7 @@ const StepNavigation = ({
         text={nextText || 'Next'}
         large
         intent="success"
+        loading={nextLoading}
         disabled={nextDisabled}
         onClick={nextHandler}
       />

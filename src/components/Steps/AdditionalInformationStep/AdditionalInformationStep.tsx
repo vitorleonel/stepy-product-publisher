@@ -3,11 +3,27 @@ import { useState } from "react";
 
 import StepHeader from "../../StepHeader";
 import StepNavigation from "../../StepNavigation";
+import PublishedStep from "../PublishedStep";
 
 import { ViewProps } from "./interfaces";
 
 const AdditionalInformationStep = (props: PanelProps<ViewProps>) => {
   const [additionalInformation, setAdditionalInformation] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const openPanel = () => {
+    setLoading(true);
+
+    setTimeout(() => {
+      props.openPanel({
+        renderPanel: PublishedStep,
+        props: {
+          ...props,
+          additionalInformation,
+        },
+      });
+    }, 1000);
+  };
 
   return (
     <section className="steps-item">
@@ -32,8 +48,9 @@ const AdditionalInformationStep = (props: PanelProps<ViewProps>) => {
       <StepNavigation
         nextText="Publish product"
         nextIcon="tick"
+        nextLoading={loading}
         prevHandler={props.closePanel}
-        nextHandler={() => {}}
+        nextHandler={openPanel}
       />
     </section>
   );
