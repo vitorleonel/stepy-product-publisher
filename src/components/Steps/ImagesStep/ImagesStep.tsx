@@ -1,4 +1,4 @@
-import { PanelProps, FileInput, Card } from "@blueprintjs/core";
+import { PanelProps, FileInput, Card, Icon, IconSize } from "@blueprintjs/core";
 import { useState } from "react";
 
 import StepHeader from "../../StepHeader";
@@ -8,7 +8,7 @@ import AdditionalInformationStep from "../AdditionalInformationStep";
 import { ViewProps } from "./interfaces";
 
 const ImagesStep = (props: PanelProps<ViewProps>) => {
-  const [inputFileRef, setInputFileRef] = useState<HTMLElement>();
+  const [inputFileRef, setInputFileRef] = useState<HTMLInputElement>();
   const [images, setImages] = useState<File[]>([]);
 
   const openPanel = () => props.openPanel({
@@ -19,7 +19,7 @@ const ImagesStep = (props: PanelProps<ViewProps>) => {
     },
   });
 
-  const addImage = ({ target: { files } }: React.ChangeEvent<HTMLInputElement>) : void => {
+  const addImage = ({ target: { files, value } }: React.ChangeEvent<HTMLInputElement>) : void => {
     if(!files?.length) {
       return;
     }
@@ -29,6 +29,12 @@ const ImagesStep = (props: PanelProps<ViewProps>) => {
       ...Array.from(files),
     ]);
   }
+
+  const removeImage = (index: number): void => {
+    const newImages = images.filter((_, currentIndex) => currentIndex !== index);
+
+    setImages(newImages);
+  };
 
   return (
     <section className="steps-item">
@@ -41,24 +47,28 @@ const ImagesStep = (props: PanelProps<ViewProps>) => {
         inputProps={{
           accept: 'image/*',
           multiple: true,
-          ref: ref => setInputFileRef(ref as HTMLElement)
+          ref: ref => setInputFileRef(ref as HTMLInputElement)
         }}
         onInputChange={addImage}
         hidden
       />
 
-      {images.map((_, index) => (
-        <Card key={index}>
-          asas
-        </Card>
-      ))}
+      <div className="images">
+        {images.map((image, index) => (
+          <Card className="images__item" interactive onClick={() => removeImage(index)} key={index}>
+            <img src={URL.createObjectURL(image)} alt={image.name} />
+            <Icon icon="trash" iconSize={IconSize.LARGE} />
+          </Card>
+        ))}
 
-      <Card onClick={() => inputFileRef?.click()}>
-        <p>Click here to add a image</p>
-      </Card>
+        <Card className="images__item images__item--add" interactive onClick={() => inputFileRef?.click()}>
+          <Icon icon="media" iconSize={IconSize.LARGE} />
+          <p>Click to add image(s)</p>
+        </Card>
+      </div>
 
       <StepNavigation
-        nextText="Define additional information"
+        nextText="Additional information"
         nextDisabled={!!!images.length}
         prevHandler={props.closePanel}
         nextHandler={openPanel}
