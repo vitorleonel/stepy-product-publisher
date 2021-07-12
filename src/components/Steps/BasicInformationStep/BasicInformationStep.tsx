@@ -1,5 +1,5 @@
 import { PanelProps, FormGroup, InputGroup, TextArea, NumericInput } from "@blueprintjs/core";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import StepHeader from "../../StepHeader";
 import StepNavigation from "../../StepNavigation";
@@ -14,6 +14,16 @@ const BasicInformationStep = (props: PanelProps<ViewProps>) => {
   const [title, setTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');
   const [price, setPrice] = useState<number>(0);
+
+  const [nextButtonIsDisabled, setNextButtonIsDisabled] = useState<boolean>(true);
+
+  useEffect(() => {
+    if(!title || !description || !price) {
+      setNextButtonIsDisabled(true);
+    } else {
+      setNextButtonIsDisabled(false);
+    }
+  }, [title, description, price])
 
   const openPanel = () => props.openPanel({
     renderPanel: ImagesStep,
@@ -73,13 +83,14 @@ const BasicInformationStep = (props: PanelProps<ViewProps>) => {
           placeholder="The price of your product"
           large
           fill
-          defaultValue={price}
-          onChange={(event) => setPrice(parseInt(event.target.value))}
+          value={price}
+          onValueChange={setPrice}
         />
       </FormGroup>
 
       <StepNavigation
         nextText="Product images"
+        nextDisabled={nextButtonIsDisabled}
         prevHandler={props.closePanel}
         nextHandler={openPanel}
       />
