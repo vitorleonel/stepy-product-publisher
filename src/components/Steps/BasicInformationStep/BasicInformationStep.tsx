@@ -6,11 +6,8 @@ import StepNavigation from "../../StepNavigation";
 import ImagesStep from "../ImagesStep";
 
 import { ViewProps } from "./interfaces";
-import { CategoryItem } from "../CategoryStep/interfaces";
 
 const BasicInformationStep = (props: PanelProps<ViewProps>) => {
-  const category: CategoryItem = props.category;
-
   const [title, setTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');
   const [price, setPrice] = useState<number>(0);
@@ -63,17 +60,6 @@ const BasicInformationStep = (props: PanelProps<ViewProps>) => {
           growVertically
           value={description}
           onChange={(event) => setDescription(event.target.value)}
-        />
-      </FormGroup>
-
-      <FormGroup label="Category" labelFor="category-input">
-        <InputGroup
-          id="category-input"
-          placeholder="The category of your product"
-          large
-          fill
-          value={category.name}
-          disabled
         />
       </FormGroup>
 
