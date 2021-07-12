@@ -81,6 +81,10 @@ const BasicInformationStep = (props: PanelProps<ViewProps>) => {
         <NumericInput
           id="price-input"
           placeholder="The price of your product"
+          leftIcon="dollar"
+          min={0}
+          stepSize={1}
+          buttonPosition="none"
           large
           fill
           value={price}
