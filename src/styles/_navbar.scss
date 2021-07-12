@@ -1,6 +1,6 @@
 .bp3-navbar {
   height: 4.5rem;
-  padding: 0 2rem;
+  padding: 0 1rem;
 
   display: flex;
   align-items: center;
@@ -19,9 +19,22 @@
     color: #394b59; //dark-gray-5
     font-weight: 500;
     font-size: 1.125rem;
+    display: none;
 
     border-left: 2px solid #ced9e0; // light-gray-1
     padding-left: 0.5rem;
     margin-left: 0.5rem;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  .bp3-navbar {
+    padding: 0 2rem;
+  }
+
+  .bp3-navbar-heading {
+    h1 {
+      display: inline-block;
+    }
   }
 }
