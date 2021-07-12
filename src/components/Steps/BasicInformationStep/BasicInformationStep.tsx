@@ -39,7 +39,7 @@ const BasicInformationStep = (props: PanelProps<ViewProps>) => {
         description="Take care in the title and description of the product as this is a very important factor when the user will decide for your product."
       />
 
-      <FormGroup label="Título" labelFor="title-input">
+      <FormGroup label="Title" labelFor="title-input">
         <InputGroup
           id="title-input"
           placeholder="Your product's title"
