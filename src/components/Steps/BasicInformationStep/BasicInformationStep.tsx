@@ -79,7 +79,7 @@ const BasicInformationStep = (props: PanelProps<ViewProps>) => {
       </FormGroup>
 
       <StepNavigation
-        nextText="Define product images"
+        nextText="Product images"
         prevHandler={props.closePanel}
         nextHandler={openPanel}
       />
