@@ -42,7 +42,7 @@ const BasicInformationStep = (props: PanelProps<ViewProps>) => {
       <FormGroup label="Título" labelFor="title-input">
         <InputGroup
           id="title-input"
-          placeholder="The title of your product"
+          placeholder="Your product's title"
           large
           fill
           value={title}
@@ -53,7 +53,7 @@ const BasicInformationStep = (props: PanelProps<ViewProps>) => {
       <FormGroup label="Description" labelFor="description-input">
         <TextArea
           id="description-input"
-          placeholder="The description of your product"
+          placeholder="Your product's description"
           rows={5}
           large
           fill
@@ -66,7 +66,7 @@ const BasicInformationStep = (props: PanelProps<ViewProps>) => {
       <FormGroup label="Price" labelFor="price-input">
         <NumericInput
           id="price-input"
-          placeholder="The price of your product"
+          placeholder="Your product's price"
           leftIcon="dollar"
           min={0}
           stepSize={1}
