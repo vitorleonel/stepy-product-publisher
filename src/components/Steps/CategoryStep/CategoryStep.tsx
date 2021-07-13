@@ -24,6 +24,7 @@ const CategoryStep = (props: PanelProps<{}>): JSX.Element => {
 
   const openPanel = (category: CategoryItem) => props.openPanel({
     renderPanel: BasicInformationStep,
+    title: "BasicInformationStep",
     props: {
       category,
     },

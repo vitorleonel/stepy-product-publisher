@@ -24,6 +24,7 @@ const BasicInformationStep = (props: PanelProps<ViewProps>) => {
 
   const openPanel = () => props.openPanel({
     renderPanel: ImagesStep,
+    title: 'ImagesStep',
     props: {
       ...props,
       title,

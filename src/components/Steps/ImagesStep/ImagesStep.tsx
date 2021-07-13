@@ -13,6 +13,7 @@ const ImagesStep = (props: PanelProps<ViewProps>) => {
 
   const openPanel = () => props.openPanel({
     renderPanel: AdditionalInformationStep,
+    title: 'AdditionalInformationStep',
     props: {
       ...props,
       images,

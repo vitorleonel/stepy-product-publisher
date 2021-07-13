@@ -17,6 +17,7 @@ const AdditionalInformationStep = (props: PanelProps<ViewProps>) => {
     setTimeout(() => {
       props.openPanel({
         renderPanel: PublishedStep,
+        title: 'PublishedStep',
         props: {
           ...props,
           additionalInformation,

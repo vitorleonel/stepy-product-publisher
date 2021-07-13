@@ -19,6 +19,7 @@ const PublishedStep = (props: PanelProps<ViewProps>) => {
 
   const openPanel = () => props.openPanel({
     renderPanel: CategoryStep,
+    title: 'CategoryStep',
   });
 
   return (
