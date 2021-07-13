@@ -18,6 +18,7 @@ const StepNavigation = ({
         text={prevText || 'Previous'}
         large
         onClick={prevHandler}
+        data-testid="prevButton"
       />
 
       <Button
@@ -28,6 +29,7 @@ const StepNavigation = ({
         loading={nextLoading}
         disabled={nextDisabled}
         onClick={nextHandler}
+        data-testid="nextButton"
       />
     </div>
   );
