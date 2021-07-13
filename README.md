@@ -32,6 +32,10 @@ To start the application, run the following commands below within the project pa
 $ yarn test
 ```
 
+## Note
+
+I decided to use Blueprint's `Panel stack` feature to experiment more with the framework, however we could do this same flow using react-router.
+
 ## About component structure
 
 I decided to follow the structure of a component as we do here in the current company, so all components you will see a structure similar to the one below:
