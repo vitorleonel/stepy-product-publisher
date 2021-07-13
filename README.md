@@ -34,7 +34,7 @@ $ yarn test
 
 ## About component structure
 
-I decided to follow the structure of a component like we do here in the current company, so all components you will see the following structure below:
+I decided to follow the structure of a component as we do here in the current company, so all components you will see a structure similar to the one below:
 
 ```
 ComponentName.tsx
