@@ -38,6 +38,7 @@ const BasicInformationStep = (props: PanelProps<ViewProps>) => {
       style: 'currency',
       currency: 'USD',
       maximumFractionDigits: 0,
+      minimumFractionDigits: 0,
     });
 
     return formatter.format(price).replace('$', '');
