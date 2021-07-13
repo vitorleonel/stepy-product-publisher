@@ -1,3 +1,8 @@
+.bp3-progress-bar,
+.bp3-progress-bar .bp3-progress-meter {
+  border-radius: 0;
+}
+
 .steps {
   height: calc(100% - 4.5rem);
   overflow-y: auto;
