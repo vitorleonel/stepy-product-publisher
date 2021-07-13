@@ -50,4 +50,5 @@ From what is already in this repository, I would continue or add the following t
 - I would continue to do the unit tests and improve them;
 - I would add E2E tests to ensure flow;
 - I would add a state management to be able to keep the data when I return a stream;
+- I would continue to adjust the lint and prettier config;
 - ...among other things that a real project would require
