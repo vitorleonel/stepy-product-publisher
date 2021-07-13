@@ -28,12 +28,12 @@
 
       .bp3-icon {
         position: absolute;
-        color: #ffffff;
+        color: $white;
         display: none;
       }
 
       &:hover {
-        background-color: #db3737;
+        background-color: $red3;
 
         img {
           opacity: 25%;
@@ -48,7 +48,7 @@
     &--add p {
       margin-top: 1rem;
       margin-bottom: 0;
-      color: #5c7080;
+      color: $gray1;
     }
   }
 }

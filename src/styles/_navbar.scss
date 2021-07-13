@@ -16,12 +16,11 @@
   }
 
   h1 {
-    color: #394b59; //dark-gray-5
     font-weight: 500;
     font-size: 1.125rem;
     display: none;
 
-    border-left: 2px solid #ced9e0; // light-gray-1
+    border-left: 2px solid $light-gray1;
     padding-left: 0.5rem;
     margin-left: 0.5rem;
   }
