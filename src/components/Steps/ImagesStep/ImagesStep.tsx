@@ -48,7 +48,8 @@ const ImagesStep = (props: PanelProps<ViewProps>) => {
         inputProps={{
           accept: 'image/*',
           multiple: true,
-          ref: ref => setInputFileRef(ref as HTMLInputElement)
+          ref: ref => setInputFileRef(ref as HTMLInputElement),
+          id: "add-image-field"
         }}
         onInputChange={addImage}
         hidden
@@ -62,7 +63,10 @@ const ImagesStep = (props: PanelProps<ViewProps>) => {
           </Card>
         ))}
 
-        <Card className="images__item images__item--add" interactive onClick={() => inputFileRef?.click()}>
+        <Card
+          className="images__item images__item--add"
+          interactive onClick={() => inputFileRef?.click()}
+        >
           <Icon icon="media" iconSize={IconSize.LARGE} />
           <p>Click to add image(s)</p>
         </Card>
