@@ -2,6 +2,8 @@
 
 **Stepy Product Publisher** is a fake application that represents the flow of publishing a product in our ecommerce that is also fake.
 
+![image](https://user-images.githubusercontent.com/15618005/125452111-a239e7bc-001b-4bc9-a278-d93c8040857c.png)
+
 ## How to install
 
 To install you need the latest stable version of Node.js (I used 14x), `yarn` and run the following commands below:
