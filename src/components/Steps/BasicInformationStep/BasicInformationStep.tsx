@@ -33,6 +33,22 @@ const BasicInformationStep = (props: PanelProps<ViewProps>) => {
     },
   });
 
+  const formatPrice = (price: number) => {
+    const formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      maximumFractionDigits: 0,
+    });
+
+    return formatter.format(price).replace('$', '');
+  }
+
+  const handlePrice = (_: number, currentPrice: string) => {
+    const normalizedPrice = parseInt((currentPrice || '0').replace(/[^0-9]+/g, ''));
+
+    setPrice(normalizedPrice);
+  }
+
   return (
     <section className="steps-item">
       <StepHeader
@@ -70,12 +86,11 @@ const BasicInformationStep = (props: PanelProps<ViewProps>) => {
           placeholder="Your product's price"
           leftIcon="dollar"
           min={0}
-          stepSize={1}
           buttonPosition="none"
           large
           fill
-          value={price}
-          onValueChange={setPrice}
+          value={formatPrice(price)}
+          onValueChange={handlePrice}
         />
       </FormGroup>
 
