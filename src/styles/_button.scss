@@ -1,0 +1,49 @@
+.button {
+  padding: 0.75rem 1rem;
+  border-radius: 3px;
+  border: none;
+  background-color: transparent;
+  color: $dark-gray1;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &__icon-right,
+  &__icon-left {
+    font-size: 1.125rem;
+  }
+
+  &__icon-right {
+    margin-left: 0.5rem;
+  }
+
+  &__icon-left {
+    margin-right: 0.5rem;
+  }
+
+  &--disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+  }
+
+  &:hover:not(&--disabled) {
+    background-color: $light-gray3;
+  }
+
+  &--primary {
+    background-color: $green3;
+    color: $white;
+
+    &:hover {
+      background-color: $green2;
+    }
+  }
+
+  &--secondary {
+    background-color: $light-gray1;
+
+    &:hover {
+      background-color: $gray5;
+    }
+  }
+}
