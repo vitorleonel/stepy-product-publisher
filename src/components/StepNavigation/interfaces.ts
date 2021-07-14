@@ -1,9 +1,7 @@
-import { IconName, MaybeElement } from '@blueprintjs/core';
-export interface ViewProps {
+export interface IStepNavigationProps {
   prevText?: string;
   nextText?: string;
-  nextIcon?: IconName | MaybeElement;
-  nextLoading?: boolean;
+  nextIcon?: string;
   nextDisabled?: boolean;
   prevHandler: () => void;
   nextHandler: () => void;

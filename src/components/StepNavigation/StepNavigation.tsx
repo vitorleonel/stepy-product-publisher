@@ -1,32 +1,28 @@
-import { Button } from "@blueprintjs/core";
-
-import { ViewProps } from "./interfaces";
+import Button from "../Button";
+import { IStepNavigationProps } from "./interfaces";
 
 const StepNavigation = ({
   prevText,
   nextText,
   nextIcon,
-  nextLoading,
   nextDisabled,
   prevHandler,
   nextHandler,
-}: ViewProps) => {
+}: IStepNavigationProps): JSX.Element => {
   return (
     <div className="steps-item__navigation">
       <Button
-        icon="arrow-left"
+        leftIcon="fas fa-arrow-left"
         text={prevText || 'Previous'}
-        large
+        type="secondary"
         onClick={prevHandler}
         data-testid="prevButton"
       />
 
       <Button
-        rightIcon={nextIcon || 'arrow-right'}
+        rightIcon={nextIcon || 'fas fa-arrow-right'}
         text={nextText || 'Next'}
-        large
-        intent="success"
-        loading={nextLoading}
+        type="primary"
         disabled={nextDisabled}
         onClick={nextHandler}
         data-testid="nextButton"

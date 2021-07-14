@@ -48,8 +48,8 @@ const AdditionalInformationStep = (props: PanelProps<ViewProps>) => {
 
       <StepNavigation
         nextText="Publish product"
-        nextIcon="tick"
-        nextLoading={loading}
+        nextIcon="fas fa-check"
+        nextDisabled={loading}
         prevHandler={props.closePanel}
         nextHandler={openPanel}
       />

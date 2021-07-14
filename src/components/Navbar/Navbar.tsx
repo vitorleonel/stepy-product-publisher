@@ -1,3 +1,5 @@
+import Button from "../Button";
+
 const Navbar = (): JSX.Element => {
   return (
     <header className="navbar">
@@ -8,8 +10,10 @@ const Navbar = (): JSX.Element => {
 
       <nav className="navbar-menu">
         <a href="https://github.com/vitorleonel/stepy-product-publisher" target="_blank" rel="noopener noreferrer">
-          <i className="fab fa-github"></i>
-          <span>Github Repository</span>
+          <Button
+            text="GitHub Repository"
+            leftIcon="fab fa-github"
+          />
         </a>
       </nav>
     </header>
