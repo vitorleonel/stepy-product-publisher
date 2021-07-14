@@ -32,6 +32,10 @@
 
     a {
       color: $dark-gray1;
+
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 }
