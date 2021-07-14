@@ -1,17 +1,18 @@
-import { Navbar as NavbarContainer, NavbarHeading, Button } from "@blueprintjs/core";
-
-const Navbar = () => {
+const Navbar = (): JSX.Element => {
   return (
-    <NavbarContainer>
-      <NavbarHeading>
+    <header className="navbar">
+      <div className="navbar-brand">
         <img src="/images/brand.svg" alt="Stepy" />
         <h1>Product Publisher</h1>
-      </NavbarHeading>
+      </div>
 
-      <a href="https://github.com/vitorleonel/stepy-product-publisher" target="_blank" rel="noopener noreferrer">
-        <Button icon="git-repo" text="GitHub Repository" minimal large />
-      </a>
-    </NavbarContainer>
+      <nav className="navbar-menu">
+        <a href="https://github.com/vitorleonel/stepy-product-publisher" target="_blank" rel="noopener noreferrer">
+          <i className="fab fa-github"></i>
+          <span>Github Repository</span>
+        </a>
+      </nav>
+    </header>
   );
 }
 
