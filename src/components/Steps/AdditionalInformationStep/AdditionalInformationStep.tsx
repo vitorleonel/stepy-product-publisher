@@ -1,8 +1,9 @@
-import { PanelProps, FormGroup, TextArea } from "@blueprintjs/core";
+import { PanelProps } from "@blueprintjs/core";
 import { useState } from "react";
 
 import StepHeader from "../../StepHeader";
 import StepNavigation from "../../StepNavigation";
+import TextAreaField from "../../TextAreaField";
 import PublishedStep from "../PublishedStep";
 
 import { ViewProps } from "./interfaces";
@@ -33,18 +34,15 @@ const AdditionalInformationStep = (props: PanelProps<ViewProps>) => {
         description="If the product needs it, you can enter extra information below."
       />
 
-      <FormGroup label="Description" labelInfo="(Optional)" labelFor="description-input">
-        <TextArea
-          id="description-input"
-          placeholder="Your product's extra information"
-          rows={5}
-          large
-          fill
-          growVertically
-          value={additionalInformation}
-          onChange={(event) => setAdditionalInformation(event.target.value)}
-        />
-      </FormGroup>
+      <TextAreaField
+        rows={5}
+        name="description"
+        label="Description (Optional)"
+        placeholder="Your product's extra information"
+        id="description-input"
+        value={additionalInformation}
+        onChange={(event) => setAdditionalInformation(event.target.value)}
+      />
 
       <StepNavigation
         nextText="Publish product"
