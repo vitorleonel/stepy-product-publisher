@@ -1,7 +1,8 @@
-import { PanelProps, Card } from "@blueprintjs/core";
+import { PanelProps } from "@blueprintjs/core";
 import { useEffect, useState } from "react";
 
 import StepHeader from "../../StepHeader";
+import Card from "../../Card";
 import BasicInformationStep from "../BasicInformationStep";
 
 import { CategoryItem } from "./interfaces";
@@ -39,7 +40,7 @@ const CategoryStep = (props: PanelProps<{}>): JSX.Element => {
 
       <div className="categories">
         {categories.map((category, index) => (
-          <Card className="categories-item" interactive onClick={() => openPanel(category)} key={index}>
+          <Card className="categories-item" onClick={() => openPanel(category)} key={index}>
             <h4 className="bp3-heading">{category.name}</h4>
             <p className="bp3-running-text bp3-text-large">{category.description}</p>
           </Card>

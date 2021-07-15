@@ -1,8 +1,9 @@
-import { PanelProps, FileInput, Card, Icon, IconSize } from "@blueprintjs/core";
+import { PanelProps, FileInput, Icon, IconSize } from "@blueprintjs/core";
 import { useState } from "react";
 
 import StepHeader from "../../StepHeader";
 import StepNavigation from "../../StepNavigation";
+import Card from "../../Card";
 import AdditionalInformationStep from "../AdditionalInformationStep";
 
 import { ViewProps } from "./interfaces";
@@ -57,7 +58,7 @@ const ImagesStep = (props: PanelProps<ViewProps>) => {
 
       <div className="images">
         {images.map((image, index) => (
-          <Card className="images__item" interactive onClick={() => removeImage(index)} key={index}>
+          <Card className="images__item" onClick={() => removeImage(index)} key={index}>
             <img src={URL.createObjectURL(image)} alt={image.name} />
             <Icon icon="trash" iconSize={IconSize.LARGE} />
           </Card>
@@ -65,7 +66,7 @@ const ImagesStep = (props: PanelProps<ViewProps>) => {
 
         <Card
           className="images__item images__item--add"
-          interactive onClick={() => inputFileRef?.click()}
+         onClick={() => inputFileRef?.click()}
         >
           <Icon icon="media" iconSize={IconSize.LARGE} />
           <p>Click to add image(s)</p>
