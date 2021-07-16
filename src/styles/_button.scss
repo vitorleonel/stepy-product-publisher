@@ -4,7 +4,7 @@
   border-radius: 3px;
   border: none;
   background-color: transparent;
-  color: $dark-gray1;
+  color: $black;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -23,19 +23,19 @@
   }
 
   &--primary {
-    background-color: $green3;
+    background-color: $primary;
     color: $white;
 
     &:hover {
-      background-color: $green2;
+      background-color: #0d8050;
     }
   }
 
   &--secondary {
-    background-color: $light-gray1;
+    background-color: $secondary;
 
     &:hover {
-      background-color: $gray5;
+      background-color: #bfccd6;
     }
   }
 }

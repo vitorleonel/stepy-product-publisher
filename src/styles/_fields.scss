@@ -11,11 +11,13 @@
   &__input,
   &__textarea {
     border-radius: 3px;
-    border: 1px solid $gray5;
+    border: 1px solid #2f3640;
     background-color: $white;
 
     &::placeholder {
-      color: $gray5;
+      color: #2f3640;
+      font-size: $font-size;
+      font-family: $font-family;
     }
   }
 

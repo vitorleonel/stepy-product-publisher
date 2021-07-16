@@ -1,11 +1,9 @@
-@import '~normalize.css';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import '~@fortawesome/fontawesome-free/scss/brands';
 @import '~@fortawesome/fontawesome-free/scss/solid';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
-@import '~@blueprintjs/core/src/blueprint';
-@import '~@blueprintjs/core/lib/scss/variables';
-
+@import 'variables';
 @import 'navbar';
 @import 'fields';
 @import 'button';
@@ -14,6 +12,16 @@
 @import 'categories';
 @import 'images';
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
 html,
 body,
 #root {
@@ -21,9 +29,10 @@ body,
 }
 
 body {
-  font-size: $pt-font-size-large;
-  background-color: $light-gray5;
-  color: $dark-gray1;
+  font-size: $font-size;
+  font-family: $font-family;
+  background-color: #f5f8fa;
+  color: $black;
 }
 
 .published {
