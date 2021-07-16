@@ -26,7 +26,7 @@
     &:not(&--add) {
       padding: 0;
 
-      .bp3-icon {
+      ion-icon {
         position: absolute;
         color: $white;
         display: none;
@@ -39,14 +39,14 @@
           opacity: 25%;
         }
 
-        .bp3-icon {
+        ion-icon {
           display: block;
         }
       }
     }
 
     &--add p {
-      margin-top: 1rem;
+      margin-top: 0.5rem;
       margin-bottom: 0;
       color: #5c7080;
     }
