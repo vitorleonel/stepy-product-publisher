@@ -1,27 +1,20 @@
-import { PanelProps, FileInput, Icon, IconSize } from "@blueprintjs/core";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 import StepHeader from "../../StepHeader";
 import StepNavigation from "../../StepNavigation";
 import Card from "../../Card";
-import AdditionalInformationStep from "../AdditionalInformationStep";
 
-import { ViewProps } from "./interfaces";
+import { IImagesStepProps } from "./interfaces";
+import { EActionType } from "../../../store/interfaces";
 
-const ImagesStep = (props: PanelProps<ViewProps>) => {
+const ImagesStep = ({ state, dispatch }: IImagesStepProps) => {
+  const history = useHistory();
+
   const [inputFileRef, setInputFileRef] = useState<HTMLInputElement>();
-  const [images, setImages] = useState<File[]>([]);
+  const [images, setImages] = useState<File[]>(state.images);
 
-  const openPanel = () => props.openPanel({
-    renderPanel: AdditionalInformationStep,
-    title: 'AdditionalInformationStep',
-    props: {
-      ...props,
-      images,
-    },
-  });
-
-  const addImage = ({ target: { files, value } }: React.ChangeEvent<HTMLInputElement>) : void => {
+  const addImage = ({ target: { files } }: React.ChangeEvent<HTMLInputElement>) : void => {
     if(!files?.length) {
       return;
     }
@@ -38,29 +31,30 @@ const ImagesStep = (props: PanelProps<ViewProps>) => {
     setImages(newImages);
   };
 
+  const handleSubmit = () => {
+    dispatch({ type: EActionType.SET_DATA, payload: { images } });
+    history.push('/additional-information');
+  }
+
   return (
     <section className="steps-item">
       <StepHeader
-        title="Product images"
+        title="Images"
         description="Choose the best images to always make your product stand out. Do not insert watermarked images."
       />
 
-      <FileInput
-        inputProps={{
-          accept: 'image/*',
-          multiple: true,
-          ref: ref => setInputFileRef(ref as HTMLInputElement),
-          id: "add-image-field"
-        }}
-        onInputChange={addImage}
-        hidden
+      <input
+        ref={ref => setInputFileRef(ref as HTMLInputElement)}
+        type="file"
+        accept="image/*"
+        multiple onChange={addImage}
       />
 
       <div className="images">
         {images.map((image, index) => (
           <Card className="images__item" onClick={() => removeImage(index)} key={index}>
             <img src={URL.createObjectURL(image)} alt={image.name} />
-            <Icon icon="trash" iconSize={IconSize.LARGE} />
+            {/* <Icon icon="trash" iconSize={IconSize.LARGE} /> */}
           </Card>
         ))}
 
@@ -68,7 +62,7 @@ const ImagesStep = (props: PanelProps<ViewProps>) => {
           className="images__item images__item--add"
          onClick={() => inputFileRef?.click()}
         >
-          <Icon icon="media" iconSize={IconSize.LARGE} />
+          {/* <Icon icon="media" iconSize={IconSize.LARGE} /> */}
           <p>Click to add image(s)</p>
         </Card>
       </div>
@@ -76,8 +70,8 @@ const ImagesStep = (props: PanelProps<ViewProps>) => {
       <StepNavigation
         nextText="Additional information"
         nextDisabled={!!!images.length}
-        prevHandler={props.closePanel}
-        nextHandler={openPanel}
+        prevHandler={history.goBack}
+        nextHandler={handleSubmit}
       />
     </section>
   );

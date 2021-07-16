@@ -1,5 +1,7 @@
-export interface CategoryItem {
-  id: number;
-  name: string;
-  description: string;
+import { Dispatch } from 'react';
+import { IAction, IState } from '../../../store/interfaces';
+
+export interface ICategoryStepProps {
+  state: IState;
+  dispatch: Dispatch<IAction>;
 }

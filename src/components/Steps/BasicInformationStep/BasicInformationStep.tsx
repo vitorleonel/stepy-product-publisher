@@ -1,18 +1,21 @@
-import { PanelProps } from "@blueprintjs/core";
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+
 
 import StepHeader from "../../StepHeader";
 import StepNavigation from "../../StepNavigation";
 import InputField from "../../InputField";
 import TextAreaField from "../../TextAreaField";
-import ImagesStep from "../ImagesStep";
 
-import { ViewProps } from "./interfaces";
+import { IBasicInformationStep } from "./interfaces";
+import { EActionType } from "../../../store/interfaces";
 
-const BasicInformationStep = (props: PanelProps<ViewProps>) => {
-  const [title, setTitle] = useState<string>('');
-  const [description, setDescription] = useState<string>('');
-  const [price, setPrice] = useState<number>(0);
+const BasicInformationStep = ({ state, dispatch }: IBasicInformationStep) => {
+  const history = useHistory();
+
+  const [title, setTitle] = useState<string>(state.title);
+  const [description, setDescription] = useState<string>(state.description);
+  const [price, setPrice] = useState<number>(state.price);
 
   const [nextButtonIsDisabled, setNextButtonIsDisabled] = useState<boolean>(true);
 
@@ -22,18 +25,12 @@ const BasicInformationStep = (props: PanelProps<ViewProps>) => {
     } else {
       setNextButtonIsDisabled(false);
     }
-  }, [title, description, price])
+  }, [title, description, price]);
 
-  const openPanel = () => props.openPanel({
-    renderPanel: ImagesStep,
-    title: 'ImagesStep',
-    props: {
-      ...props,
-      title,
-      description,
-      price,
-    },
-  });
+  const handleSubmit = () => {
+    dispatch({ type: EActionType.SET_DATA, payload: { title, description, price } });
+    history.push('/images');
+  }
 
   const formatPrice = (price: number) => {
     const formatter = new Intl.NumberFormat('en-US', {
@@ -55,7 +52,7 @@ const BasicInformationStep = (props: PanelProps<ViewProps>) => {
   return (
     <section className="steps-item">
       <StepHeader
-        title="Basic product information"
+        title="Basic information"
         description="Take care in the title and description of the product as this is a very important factor when the user will decide for your product."
       />
 
@@ -88,10 +85,10 @@ const BasicInformationStep = (props: PanelProps<ViewProps>) => {
       />
 
       <StepNavigation
-        nextText="Product images"
+        nextText="Images"
         nextDisabled={nextButtonIsDisabled}
-        prevHandler={props.closePanel}
-        nextHandler={openPanel}
+        prevHandler={history.goBack}
+        nextHandler={handleSubmit}
       />
     </section>
   );

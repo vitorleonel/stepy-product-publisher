@@ -1,55 +1,34 @@
-import { PanelStack2, Panel, ProgressBar } from "@blueprintjs/core";
-import { useState } from "react";
+import { useReducer } from "react";
+import {
+  HashRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
 
 import CategoryStep from './CategoryStep';
+import BasicInformationStep from './BasicInformationStep';
+import ImagesStep from './ImagesStep';
+import AdditionalInformationStep from './AdditionalInformationStep';
+import PublishedStep from './PublishedStep';
+
+import { reducer, initialState } from '../../store';
 
 const Steps = (): JSX.Element => {
-  const panelOptions: Record<string, number> = {
-    'CategoryStep': 1,
-    'BasicInformationStep': 2,
-    'ImagesStep': 3,
-    'AdditionalInformationStep': 4,
-    'PublishedStep': 5,
-  }
-
-  const totalOfPanel: number = Object.keys(panelOptions).length;
-  const [currentStep, setCurrentStep] = useState<number>(1);
-
-  const initialPanel: Panel<{}> = {
-    renderPanel: CategoryStep,
-    title: 'CategoryStep',
-  };
-
-  const handleOpenPanel = ({ title }: Panel<{}>) => {
-    setCurrentStep(panelOptions[title as string] || 1);
-  };
-
-  const handleClosePanel = () => {
-    if(currentStep < 1) {
-      return;
-    }
-
-    setCurrentStep(currentStep - 1);
-  }
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
-    <>
-      <ProgressBar
-        intent="success"
-        animate={false}
-        stripes={false}
-        value={currentStep / totalOfPanel}
-      />
+    <Router>
+      <Switch>
+        <Route path="/categories" component={() => <CategoryStep state={state} dispatch={dispatch} />} />
+        <Route path="/basic-information" component={() => <BasicInformationStep  state={state} dispatch={dispatch} />} />
+        <Route path="/images" component={() => <ImagesStep state={state} dispatch={dispatch} />} />
+        <Route path="/additional-information" component={() => <AdditionalInformationStep state={state} dispatch={dispatch} />} />
+        <Route path="/published" component={() => <PublishedStep state={state} dispatch={dispatch} />} />
 
-      <PanelStack2
-        className="steps"
-        initialPanel={initialPanel}
-        showPanelHeader={false}
-        renderActivePanelOnly
-        onOpen={handleOpenPanel}
-        onClose={handleClosePanel}
-      />
-    </>
+        <Redirect exact from="/" to="/categories" />
+      </Switch>
+    </Router>
   );
 }
 

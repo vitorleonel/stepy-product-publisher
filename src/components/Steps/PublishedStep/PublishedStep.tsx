@@ -1,16 +1,17 @@
-import { PanelProps } from "@blueprintjs/core";
 // @ts-ignore
 import Lottie from "react-lottie";
+import { useHistory } from "react-router-dom";
 
 import Button from "../../Button";
-import CategoryStep from "../CategoryStep";
 
 import animationData from './animationData.json'
-import { ViewProps } from "./interfaces";
+import { IPublishedStepProps } from "./interfaces";
 
-const PublishedStep = (props: PanelProps<ViewProps>) => {
+const PublishedStep = ({ state }: IPublishedStepProps) => {
+  const history = useHistory();
+
   const defaultOptions = {
-    loop: true,
+    loop: false,
     autoplay: true,
     animationData,
     rendererSettings: {
@@ -18,10 +19,11 @@ const PublishedStep = (props: PanelProps<ViewProps>) => {
     }
   };
 
-  const openPanel = () => props.openPanel({
-    renderPanel: CategoryStep,
-    title: 'CategoryStep',
-  });
+  const resetRouteHistory = () => {
+    const calculatedInitialPoint = (history.length - 2) * -1;
+
+    history.go(calculatedInitialPoint);
+  };
 
   return (
     <section className="steps-item">
@@ -29,13 +31,13 @@ const PublishedStep = (props: PanelProps<ViewProps>) => {
 
       <div className="published">
         <h2 className="bp3-heading">Congratulations!</h2>
-        <p>You have just published your product <strong>{props.title}</strong>.</p>
+        <p>You have just published your product <strong>{state.title}</strong>.</p>
 
         <Button
           leftIcon="fas fa-plus"
           text="Add another product"
           type="secondary"
-          onClick={openPanel}
+          onClick={resetRouteHistory}
         />
       </div>
     </section>

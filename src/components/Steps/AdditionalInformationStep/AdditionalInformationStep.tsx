@@ -1,31 +1,27 @@
-import { PanelProps } from "@blueprintjs/core";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 import StepHeader from "../../StepHeader";
 import StepNavigation from "../../StepNavigation";
 import TextAreaField from "../../TextAreaField";
-import PublishedStep from "../PublishedStep";
 
-import { ViewProps } from "./interfaces";
+import { IAdditionalInformationStepProps } from "./interfaces";
+import { EActionType } from "../../../store/interfaces";
 
-const AdditionalInformationStep = (props: PanelProps<ViewProps>) => {
-  const [additionalInformation, setAdditionalInformation] = useState<string>('');
+const AdditionalInformationStep = ({ state, dispatch }: IAdditionalInformationStepProps) => {
+  const history = useHistory();
+
+  const [additionalInformation, setAdditionalInformation] = useState<string>(state.additionalInformation);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const openPanel = () => {
+  const handleSubmit = () => {
     setLoading(true);
 
     setTimeout(() => {
-      props.openPanel({
-        renderPanel: PublishedStep,
-        title: 'PublishedStep',
-        props: {
-          ...props,
-          additionalInformation,
-        },
-      });
+      dispatch({ type: EActionType.SET_DATA, payload: { additionalInformation } });
+      history.push('/published');
     }, 1000);
-  };
+  }
 
   return (
     <section className="steps-item">
@@ -48,8 +44,8 @@ const AdditionalInformationStep = (props: PanelProps<ViewProps>) => {
         nextText="Publish product"
         nextIcon="fas fa-check"
         nextDisabled={loading}
-        prevHandler={props.closePanel}
-        nextHandler={openPanel}
+        prevHandler={history.goBack}
+        nextHandler={handleSubmit}
       />
     </section>
   );

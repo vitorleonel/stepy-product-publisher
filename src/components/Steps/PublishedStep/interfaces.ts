@@ -1,10 +1,7 @@
-import { CategoryItem } from '../CategoryStep/interfaces';
+import { Dispatch } from 'react';
+import { IAction, IState } from '../../../store/interfaces';
 
-export interface ViewProps {
-  category: CategoryItem;
-  title: string;
-  description: string;
-  price: number;
-  images: File[];
-  additionalInformation: string;
+export interface IPublishedStepProps {
+  state: IState;
+  dispatch: Dispatch<IAction>;
 }

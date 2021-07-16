@@ -1,14 +1,15 @@
-import { PanelProps } from "@blueprintjs/core";
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 
 import StepHeader from "../../StepHeader";
 import Card from "../../Card";
-import BasicInformationStep from "../BasicInformationStep";
 
-import { CategoryItem } from "./interfaces";
+import { ICategoryStepProps } from "./interfaces";
+import { EActionType, ICategoryItem } from "../../../store/interfaces";
 
-const CategoryStep = (props: PanelProps<{}>): JSX.Element => {
-  const [categories, setCategories] = useState<CategoryItem[]>([]);
+const CategoryStep = ({ dispatch }: ICategoryStepProps): JSX.Element => {
+  const history = useHistory();
+  const [categories, setCategories] = useState<ICategoryItem[]>([]);
 
   useEffect(() => {
     getCategories();
@@ -23,13 +24,10 @@ const CategoryStep = (props: PanelProps<{}>): JSX.Element => {
     ]);
   }
 
-  const openPanel = (category: CategoryItem) => props.openPanel({
-    renderPanel: BasicInformationStep,
-    title: "BasicInformationStep",
-    props: {
-      category,
-    },
-  });
+  const selectCategory = (category: ICategoryItem) => {
+    dispatch({ type: EActionType.SET_DATA, payload: { category } });
+    history.push('/basic-information');
+  };
 
   return (
     <section className="steps-item">
@@ -40,7 +38,7 @@ const CategoryStep = (props: PanelProps<{}>): JSX.Element => {
 
       <div className="categories">
         {categories.map((category, index) => (
-          <Card className="categories-item" onClick={() => openPanel(category)} key={index}>
+          <Card className="categories-item" onClick={() => selectCategory(category)} key={index}>
             <h4 className="bp3-heading">{category.name}</h4>
             <p className="bp3-running-text bp3-text-large">{category.description}</p>
           </Card>
