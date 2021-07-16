@@ -1,26 +1,22 @@
-import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
+import StepHeader from '../../StepHeader';
+import StepNavigation from '../../StepNavigation';
+import InputField from '../../InputField';
+import TextAreaField from '../../TextAreaField';
 
-import StepHeader from "../../StepHeader";
-import StepNavigation from "../../StepNavigation";
-import InputField from "../../InputField";
-import TextAreaField from "../../TextAreaField";
-
-import { IBasicInformationStep } from "./interfaces";
-import { EActionType } from "../../../store/interfaces";
-
-const BasicInformationStep = ({ state, dispatch }: IBasicInformationStep) => {
+const BasicInformationStep = ({ state, dispatch }) => {
   const history = useHistory();
 
-  const [title, setTitle] = useState<string>(state.title);
-  const [description, setDescription] = useState<string>(state.description);
-  const [price, setPrice] = useState<number>(state.price);
+  const [title, setTitle] = useState(state.title);
+  const [description, setDescription] = useState(state.description);
+  const [price, setPrice] = useState(state.price);
 
-  const [nextButtonIsDisabled, setNextButtonIsDisabled] = useState<boolean>(true);
+  const [nextButtonIsDisabled, setNextButtonIsDisabled] = useState(true);
 
   useEffect(() => {
-    if(!title || !description || !price) {
+    if (!title || !description || !price) {
       setNextButtonIsDisabled(true);
     } else {
       setNextButtonIsDisabled(false);
@@ -28,11 +24,14 @@ const BasicInformationStep = ({ state, dispatch }: IBasicInformationStep) => {
   }, [title, description, price]);
 
   const handleSubmit = () => {
-    dispatch({ type: EActionType.SET_DATA, payload: { title, description, price } });
+    dispatch({
+      type: EActionType.SET_DATA,
+      payload: { title, description, price },
+    });
     history.push('/images');
-  }
+  };
 
-  const formatPrice = (price: number) => {
+  const formatPrice = (price) => {
     const formatter = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
@@ -41,13 +40,15 @@ const BasicInformationStep = ({ state, dispatch }: IBasicInformationStep) => {
     });
 
     return formatter.format(price).replace('$', '');
-  }
+  };
 
-  const handlePrice = (currentPrice: string) => {
-    const normalizedPrice = parseInt((currentPrice || '0').replace(/[^0-9]+/g, ''));
+  const handlePrice = (currentPrice) => {
+    const normalizedPrice = parseInt(
+      (currentPrice || '0').replace(/[^0-9]+/g, '')
+    );
 
     setPrice(normalizedPrice);
-  }
+  };
 
   return (
     <section className="steps-item">
@@ -92,6 +93,6 @@ const BasicInformationStep = ({ state, dispatch }: IBasicInformationStep) => {
       />
     </section>
   );
-}
+};
 
 export default BasicInformationStep;

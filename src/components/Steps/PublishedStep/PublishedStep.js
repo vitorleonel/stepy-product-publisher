@@ -1,13 +1,12 @@
 // @ts-ignore
-import Lottie from "react-lottie";
-import { useHistory } from "react-router-dom";
+import Lottie from 'react-lottie';
+import { useHistory } from 'react-router-dom';
 
-import Button from "../../Button";
+import Button from '../../Button';
 
-import animationData from './animationData.json'
-import { IPublishedStepProps } from "./interfaces";
+import animationData from './animationData.json';
 
-const PublishedStep = ({ state }: IPublishedStepProps) => {
+const PublishedStep = ({ state }) => {
   const history = useHistory();
 
   const defaultOptions = {
@@ -15,8 +14,8 @@ const PublishedStep = ({ state }: IPublishedStepProps) => {
     autoplay: true,
     animationData,
     rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice'
-    }
+      preserveAspectRatio: 'xMidYMid slice',
+    },
   };
 
   const resetRouteHistory = () => {
@@ -31,7 +30,9 @@ const PublishedStep = ({ state }: IPublishedStepProps) => {
 
       <div className="published">
         <h2 className="bp3-heading">Congratulations!</h2>
-        <p>You have just published your product <strong>{state.title}</strong>.</p>
+        <p>
+          You have just published your product <strong>{state.title}</strong>.
+        </p>
 
         <Button
           leftIcon="fas fa-plus"

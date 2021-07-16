@@ -1,9 +1,8 @@
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent } from '@testing-library/react';
 
-import BasicInformationStep from "./BasicInformationStep";
+import BasicInformationStep from './BasicInformationStep';
 
 describe('BasicInformationStep Component', () => {
-
   const fakeCategory = {
     id: 1,
     name: 'Category',
@@ -11,11 +10,13 @@ describe('BasicInformationStep Component', () => {
   };
 
   test('should render correctly', async () => {
-    const { container } = render(<BasicInformationStep
-      closePanel={jest.fn()}
-      openPanel={jest.fn()}
-      category={fakeCategory}
-    />);
+    const { container } = render(
+      <BasicInformationStep
+        closePanel={jest.fn()}
+        openPanel={jest.fn()}
+        category={fakeCategory}
+      />
+    );
 
     expect(container).toMatchSnapshot();
   });
@@ -23,11 +24,13 @@ describe('BasicInformationStep Component', () => {
   test('should be possible to fill in the fields and call openPanel function', async () => {
     const openPanel = jest.fn();
 
-    const { getByPlaceholderText, getByTestId } = render(<BasicInformationStep
-      closePanel={jest.fn()}
-      openPanel={openPanel}
-      category={fakeCategory}
-    />);
+    const { getByPlaceholderText, getByTestId } = render(
+      <BasicInformationStep
+        closePanel={jest.fn()}
+        openPanel={openPanel}
+        category={fakeCategory}
+      />
+    );
 
     const nextButton = getByTestId('nextButton');
     const titleField = getByPlaceholderText("Your product's title");
@@ -48,16 +51,17 @@ describe('BasicInformationStep Component', () => {
   test('should not be possible call openPanel function when I not fill fields', async () => {
     const openPanel = jest.fn();
 
-    const { getByTestId } = render(<BasicInformationStep
-      closePanel={jest.fn()}
-      openPanel={openPanel}
-      category={fakeCategory}
-    />);
+    const { getByTestId } = render(
+      <BasicInformationStep
+        closePanel={jest.fn()}
+        openPanel={openPanel}
+        category={fakeCategory}
+      />
+    );
 
     const nextButton = getByTestId('nextButton');
     await fireEvent.click(nextButton);
 
     expect(openPanel).toBeCalledTimes(0);
   });
-
 });

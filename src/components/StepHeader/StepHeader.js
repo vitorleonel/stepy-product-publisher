@@ -1,6 +1,4 @@
-import { ViewProps } from "./interfaces";
-
-const StepHeader = ({ title, description }: ViewProps): JSX.Element => {
+const StepHeader = ({ title, description }) => {
   return (
     <div className="steps-item__header">
       <h2 className="bp3-heading">{title}</h2>

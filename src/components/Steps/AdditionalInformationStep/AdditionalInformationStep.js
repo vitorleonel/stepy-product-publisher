@@ -1,27 +1,29 @@
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
-import StepHeader from "../../StepHeader";
-import StepNavigation from "../../StepNavigation";
-import TextAreaField from "../../TextAreaField";
+import StepHeader from '../../StepHeader';
+import StepNavigation from '../../StepNavigation';
+import TextAreaField from '../../TextAreaField';
 
-import { IAdditionalInformationStepProps } from "./interfaces";
-import { EActionType } from "../../../store/interfaces";
-
-const AdditionalInformationStep = ({ state, dispatch }: IAdditionalInformationStepProps) => {
+const AdditionalInformationStep = ({ state, dispatch }) => {
   const history = useHistory();
 
-  const [additionalInformation, setAdditionalInformation] = useState<string>(state.additionalInformation);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [additionalInformation, setAdditionalInformation] = useState(
+    state.additionalInformation
+  );
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = () => {
     setLoading(true);
 
     setTimeout(() => {
-      dispatch({ type: EActionType.SET_DATA, payload: { additionalInformation } });
+      dispatch({
+        type: EActionType.SET_DATA,
+        payload: { additionalInformation },
+      });
       history.push('/published');
     }, 1000);
-  }
+  };
 
   return (
     <section className="steps-item">
@@ -49,6 +51,6 @@ const AdditionalInformationStep = ({ state, dispatch }: IAdditionalInformationSt
       />
     </section>
   );
-}
+};
 
 export default AdditionalInformationStep;

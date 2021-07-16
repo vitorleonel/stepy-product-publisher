@@ -1,5 +1,4 @@
-import Button from "../Button";
-import { IStepNavigationProps } from "./interfaces";
+import Button from '../Button';
 
 const StepNavigation = ({
   prevText,
@@ -8,7 +7,7 @@ const StepNavigation = ({
   nextDisabled,
   prevHandler,
   nextHandler,
-}: IStepNavigationProps): JSX.Element => {
+}) => {
   return (
     <div className="steps-item__navigation">
       <Button
@@ -29,6 +28,6 @@ const StepNavigation = ({
       />
     </div>
   );
-}
+};
 
 export default StepNavigation;

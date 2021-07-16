@@ -1,32 +1,28 @@
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
-import StepHeader from "../../StepHeader";
-import StepNavigation from "../../StepNavigation";
-import Card from "../../Card";
+import StepHeader from '../../StepHeader';
+import StepNavigation from '../../StepNavigation';
+import Card from '../../Card';
 
-import { IImagesStepProps } from "./interfaces";
-import { EActionType } from "../../../store/interfaces";
-
-const ImagesStep = ({ state, dispatch }: IImagesStepProps) => {
+const ImagesStep = ({ state, dispatch }) => {
   const history = useHistory();
 
-  const [inputFileRef, setInputFileRef] = useState<HTMLInputElement>();
-  const [images, setImages] = useState<File[]>(state.images);
+  const [inputFileRef, setInputFileRef] = useState();
+  const [images, setImages] = useState(state.images);
 
-  const addImage = ({ target: { files } }: React.ChangeEvent<HTMLInputElement>) : void => {
-    if(!files?.length) {
+  const addImage = ({ target: { files } }) => {
+    if (!files?.length) {
       return;
     }
 
-    setImages([
-      ...images,
-      ...Array.from(files),
-    ]);
-  }
+    setImages([...images, ...Array.from(files)]);
+  };
 
-  const removeImage = (index: number): void => {
-    const newImages = images.filter((_, currentIndex) => currentIndex !== index);
+  const removeImage = (index) => {
+    const newImages = images.filter(
+      (_, currentIndex) => currentIndex !== index
+    );
 
     setImages(newImages);
   };
@@ -34,7 +30,7 @@ const ImagesStep = ({ state, dispatch }: IImagesStepProps) => {
   const handleSubmit = () => {
     dispatch({ type: EActionType.SET_DATA, payload: { images } });
     history.push('/additional-information');
-  }
+  };
 
   return (
     <section className="steps-item">
@@ -44,15 +40,20 @@ const ImagesStep = ({ state, dispatch }: IImagesStepProps) => {
       />
 
       <input
-        ref={ref => setInputFileRef(ref as HTMLInputElement)}
+        ref={(ref) => setInputFileRef(ref)}
         type="file"
         accept="image/*"
-        multiple onChange={addImage}
+        multiple
+        onChange={addImage}
       />
 
       <div className="images">
         {images.map((image, index) => (
-          <Card className="images__item" onClick={() => removeImage(index)} key={index}>
+          <Card
+            className="images__item"
+            onClick={() => removeImage(index)}
+            key={index}
+          >
             <img src={URL.createObjectURL(image)} alt={image.name} />
             {/* <Icon icon="trash" iconSize={IconSize.LARGE} /> */}
           </Card>
@@ -60,7 +61,7 @@ const ImagesStep = ({ state, dispatch }: IImagesStepProps) => {
 
         <Card
           className="images__item images__item--add"
-         onClick={() => inputFileRef?.click()}
+          onClick={() => inputFileRef?.click()}
         >
           {/* <Icon icon="media" iconSize={IconSize.LARGE} /> */}
           <p>Click to add image(s)</p>
@@ -75,6 +76,6 @@ const ImagesStep = ({ state, dispatch }: IImagesStepProps) => {
       />
     </section>
   );
-}
+};
 
 export default ImagesStep;

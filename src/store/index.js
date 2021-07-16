@@ -1,6 +1,6 @@
-import { EActionType, IAction, IState } from './interfaces';
+import Actions from './actions';
 
-export const initialState: IState = {
+export const initialState = {
   category: null,
   title: '',
   description: '',
@@ -9,9 +9,9 @@ export const initialState: IState = {
   additionalInformation: '',
 };
 
-export const reducer = (state: IState, action: IAction) => {
+export const reducer = (state, action) => {
   switch (action.type) {
-    case EActionType.SET_DATA:
+    case Actions.SET_DATA:
       return { ...state, ...action.payload };
     default:
       return state;
