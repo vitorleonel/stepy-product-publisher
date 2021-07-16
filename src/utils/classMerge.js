@@ -1,4 +1,4 @@
-const classMerge = (classNames: string | string[]): string => {
+const classMerge = (classNames) => {
   if (Array.isArray(classNames)) {
     return classNames.join(' ').trim();
   }
