@@ -16,9 +16,21 @@ const Button = ({
 
   return (
     <button className={classes} disabled={disabled} onClick={onClick}>
-      {leftIcon && <i className={`button__icon-left ${leftIcon}`} />}
+      {leftIcon && (
+        <ion-icon
+          class="button__icon-left"
+          name={leftIcon}
+          size="small"
+        ></ion-icon>
+      )}
       {text}
-      {rightIcon && <i className={`button__icon-right ${rightIcon}`} />}
+      {rightIcon && (
+        <ion-icon
+          class="button__icon-right"
+          name={rightIcon}
+          size="small"
+        ></ion-icon>
+      )}
     </button>
   );
 };

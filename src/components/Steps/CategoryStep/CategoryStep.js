@@ -4,6 +4,8 @@ import { useHistory } from 'react-router';
 import StepHeader from '../../StepHeader';
 import Card from '../../Card';
 
+import Actions from '../../../store/actions';
+
 const CategoryStep = ({ dispatch }) => {
   const history = useHistory();
   const [categories, setCategories] = useState([]);
@@ -34,7 +36,7 @@ const CategoryStep = ({ dispatch }) => {
   };
 
   const selectCategory = (category) => {
-    dispatch({ type: EActionType.SET_DATA, payload: { category } });
+    dispatch({ type: Actions.SET_DATA, payload: { category } });
     history.push('/basic-information');
   };
 

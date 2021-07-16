@@ -11,7 +11,7 @@ const StepNavigation = ({
   return (
     <div className="steps-item__navigation">
       <Button
-        leftIcon="fas fa-arrow-left"
+        leftIcon="arrow-back-outline"
         text={prevText || 'Previous'}
         type="secondary"
         onClick={prevHandler}
@@ -19,7 +19,7 @@ const StepNavigation = ({
       />
 
       <Button
-        rightIcon={nextIcon || 'fas fa-arrow-right'}
+        rightIcon={nextIcon || 'arrow-forward-outline'}
         text={nextText || 'Next'}
         type="primary"
         disabled={nextDisabled}

@@ -35,7 +35,7 @@ const PublishedStep = ({ state }) => {
         </p>
 
         <Button
-          leftIcon="fas fa-plus"
+          leftIcon="add-outline"
           text="Add another product"
           type="secondary"
           onClick={resetRouteHistory}

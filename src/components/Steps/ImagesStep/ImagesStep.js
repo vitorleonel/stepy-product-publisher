@@ -5,6 +5,8 @@ import StepHeader from '../../StepHeader';
 import StepNavigation from '../../StepNavigation';
 import Card from '../../Card';
 
+import Actions from '../../../store/actions';
+
 const ImagesStep = ({ state, dispatch }) => {
   const history = useHistory();
 
@@ -28,7 +30,7 @@ const ImagesStep = ({ state, dispatch }) => {
   };
 
   const handleSubmit = () => {
-    dispatch({ type: EActionType.SET_DATA, payload: { images } });
+    dispatch({ type: Actions.SET_DATA, payload: { images } });
     history.push('/additional-information');
   };
 
@@ -55,7 +57,7 @@ const ImagesStep = ({ state, dispatch }) => {
             key={index}
           >
             <img src={URL.createObjectURL(image)} alt={image.name} />
-            {/* <Icon icon="trash" iconSize={IconSize.LARGE} /> */}
+            <ion-icon name="trash-outline" size="small"></ion-icon>
           </Card>
         ))}
 
@@ -63,7 +65,7 @@ const ImagesStep = ({ state, dispatch }) => {
           className="images__item images__item--add"
           onClick={() => inputFileRef?.click()}
         >
-          {/* <Icon icon="media" iconSize={IconSize.LARGE} /> */}
+          <ion-icon name="images-outline" size="small"></ion-icon>
           <p>Click to add image(s)</p>
         </Card>
       </div>

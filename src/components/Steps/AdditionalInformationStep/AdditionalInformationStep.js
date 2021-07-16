@@ -5,6 +5,8 @@ import StepHeader from '../../StepHeader';
 import StepNavigation from '../../StepNavigation';
 import TextAreaField from '../../TextAreaField';
 
+import Actions from '../../../store/actions';
+
 const AdditionalInformationStep = ({ state, dispatch }) => {
   const history = useHistory();
 
@@ -18,7 +20,7 @@ const AdditionalInformationStep = ({ state, dispatch }) => {
 
     setTimeout(() => {
       dispatch({
-        type: EActionType.SET_DATA,
+        type: Actions.SET_DATA,
         payload: { additionalInformation },
       });
       history.push('/published');
@@ -44,7 +46,7 @@ const AdditionalInformationStep = ({ state, dispatch }) => {
 
       <StepNavigation
         nextText="Publish product"
-        nextIcon="fas fa-check"
+        nextIcon="checkmark-outline"
         nextDisabled={loading}
         prevHandler={history.goBack}
         nextHandler={handleSubmit}

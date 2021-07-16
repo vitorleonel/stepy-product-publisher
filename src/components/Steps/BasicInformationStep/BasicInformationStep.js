@@ -6,6 +6,8 @@ import StepNavigation from '../../StepNavigation';
 import InputField from '../../InputField';
 import TextAreaField from '../../TextAreaField';
 
+import Actions from '../../../store/actions';
+
 const BasicInformationStep = ({ state, dispatch }) => {
   const history = useHistory();
 
@@ -25,7 +27,7 @@ const BasicInformationStep = ({ state, dispatch }) => {
 
   const handleSubmit = () => {
     dispatch({
-      type: EActionType.SET_DATA,
+      type: Actions.SET_DATA,
       payload: { title, description, price },
     });
     history.push('/images');
