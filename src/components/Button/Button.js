@@ -8,6 +8,7 @@ const Button = ({
   leftIcon,
   rightIcon,
   onClick,
+  ...rest
 }) => {
   const disabledClass = disabled ? 'button--disabled' : '';
   const typeClass = type ? `button--${type}` : '';
@@ -15,7 +16,7 @@ const Button = ({
   const classes = classMerge(['button', typeClass, disabledClass, className]);
 
   return (
-    <button className={classes} disabled={disabled} onClick={onClick}>
+    <button className={classes} disabled={disabled} onClick={onClick} {...rest}>
       {leftIcon && (
         <ion-icon
           class="button__icon-left"
