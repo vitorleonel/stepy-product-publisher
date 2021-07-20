@@ -1,14 +1,8 @@
-import { useHistory } from 'react-router-dom';
-
-import Button from '../../Button';
+import Button from '../../components/Button';
 
 const PublishedStep = ({ state }) => {
-  const history = useHistory();
-
-  const resetRouteHistory = () => {
-    const calculatedInitialPoint = (history.length - 2) * -1;
-
-    history.go(calculatedInitialPoint);
+  const publishAnotherProduct = () => {
+    window.location = '/';
   };
 
   return (
@@ -21,9 +15,9 @@ const PublishedStep = ({ state }) => {
 
         <Button
           leftIcon="add-outline"
-          text="Add another product"
+          text="Publish another product"
           type="secondary"
-          onClick={resetRouteHistory}
+          onClick={publishAnotherProduct}
         />
       </div>
     </section>

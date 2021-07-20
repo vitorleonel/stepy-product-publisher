@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import StepHeader from '../../StepHeader';
-import StepNavigation from '../../StepNavigation';
-import TextAreaField from '../../TextAreaField';
+import StepHeader from '../../components/StepHeader';
+import StepNavigation from '../../components/StepNavigation';
+import TextAreaField from '../../components/TextAreaField';
 
-import Actions from '../../../store/actions';
+import Actions from '../../store/actions';
 
 const AdditionalInformationStep = ({ state, dispatch }) => {
   const history = useHistory();

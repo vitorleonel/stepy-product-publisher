@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 
-import StepHeader from '../../StepHeader';
-import Card from '../../Card';
+import StepHeader from '../../components/StepHeader';
+import Card from '../../components/Card';
 
-import Actions from '../../../store/actions';
+import Actions from '../../store/actions';
 
 const CategoryStep = ({ dispatch }) => {
   const history = useHistory();

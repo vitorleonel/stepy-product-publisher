@@ -8,11 +8,11 @@ import {
 
 import { reducer, initialState } from '../../store';
 
-import CategoryStep from './CategoryStep';
-import BasicInformationStep from './BasicInformationStep';
-import ImagesStep from './ImagesStep';
-import AdditionalInformationStep from './AdditionalInformationStep';
-import PublishedStep from './PublishedStep';
+import CategoryStep from '../../pages/CategoryStep';
+import BasicInformationStep from '../../pages/BasicInformationStep';
+import ImagesStep from '../../pages/ImagesStep';
+import AdditionalInformationStep from '../../pages/AdditionalInformationStep';
+import PublishedStep from '../../pages/PublishedStep';
 
 const Steps = () => {
   const [state, dispatch] = useReducer(reducer, initialState);

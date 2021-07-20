@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import StepHeader from '../../StepHeader';
-import StepNavigation from '../../StepNavigation';
-import InputField from '../../InputField';
-import TextAreaField from '../../TextAreaField';
+import StepHeader from '../../components/StepHeader';
+import StepNavigation from '../../components/StepNavigation';
+import InputField from '../../components/InputField';
+import TextAreaField from '../../components/TextAreaField';
 
-import Actions from '../../../store/actions';
+import Actions from '../../store/actions';
 
 const BasicInformationStep = ({ state, dispatch }) => {
   const history = useHistory();

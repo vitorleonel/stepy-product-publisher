@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import StepHeader from '../../StepHeader';
-import StepNavigation from '../../StepNavigation';
-import Card from '../../Card';
+import StepHeader from '../../components/StepHeader';
+import StepNavigation from '../../components/StepNavigation';
+import Card from '../../components/Card';
 
-import Actions from '../../../store/actions';
+import Actions from '../../store/actions';
 
 const ImagesStep = ({ state, dispatch }) => {
   const history = useHistory();
