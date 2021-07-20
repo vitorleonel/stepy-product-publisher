@@ -14,7 +14,7 @@ const Navbar = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Button text="GitHub Repository" leftIcon="fab fa-github" />
+          <Button text="GitHub Repository" leftIcon="logo-github" />
         </a>
       </nav>
     </header>
