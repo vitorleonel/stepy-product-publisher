@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -9,7 +10,7 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'static/js/app.js',
+    filename: 'js/app.js',
     publicPath: '/',
   },
 
@@ -36,9 +37,19 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: 'body',
       template: path.resolve(__dirname, 'public', 'index.html'),
+      favicon: path.resolve(__dirname, 'public', 'favicon.ico'),
     }),
     new MiniCssExtractPlugin({
-      filename: 'static/css/app.css',
+      filename: 'css/app.css',
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'public', 'images'),
+          to: 'images',
+          force: true,
+        },
+      ],
     }),
   ],
 
