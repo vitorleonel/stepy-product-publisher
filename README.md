@@ -45,7 +45,7 @@ index.js
 
 From what is already in this repository, I would continue or add the following things:
 
-- I would add the unit tests;
-- I would add E2E tests to ensure flow;
+- I would add the unit tests using Jest with React Testing library;
+- I would add E2E tests to ensure flow using Cypress;
 - I would continue to adjust the lint's and prettier config;
 - ...among other things that a real project would require
