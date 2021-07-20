@@ -42,6 +42,7 @@ const ImagesStep = ({ state, dispatch }) => {
       />
 
       <input
+        className="hidden"
         ref={(ref) => setInputFileRef(ref)}
         type="file"
         accept="image/*"

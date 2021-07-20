@@ -54,10 +54,8 @@ const CategoryStep = ({ dispatch }) => {
             onClick={() => selectCategory(category)}
             key={index}
           >
-            <h4 className="bp3-heading">{category.name}</h4>
-            <p className="bp3-running-text bp3-text-large">
-              {category.description}
-            </p>
+            <h4>{category.name}</h4>
+            <p>{category.description}</p>
           </Card>
         ))}
       </div>

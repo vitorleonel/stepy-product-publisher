@@ -1,7 +1,7 @@
 .button {
-  font-size: 1rem;
-  padding: 0.75rem 1rem;
-  border-radius: 3px;
+  font-size: $font-size-base;
+  padding: $spacing-12 $spacing-16;
+  border-radius: $spacing-4;
   border: none;
   background-color: transparent;
   color: $black;
@@ -10,11 +10,11 @@
   cursor: pointer;
 
   &__icon-right {
-    margin-left: 0.5rem;
+    margin-left: $spacing-8;
   }
 
   &__icon-left {
-    margin-right: 0.5rem;
+    margin-right: $spacing-8;
   }
 
   &--disabled {
@@ -27,7 +27,7 @@
     color: $white;
 
     &:hover {
-      background-color: #0d8050;
+      background-color: darken($primary, 2.5%);
     }
   }
 
@@ -35,7 +35,7 @@
     background-color: $secondary;
 
     &:hover {
-      background-color: #bfccd6;
+      background-color: darken($secondary, 100%);
     }
   }
 }

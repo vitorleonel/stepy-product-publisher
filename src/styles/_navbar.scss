@@ -1,8 +1,8 @@
 .navbar {
-  height: 4rem;
-  padding: 0 1rem;
+  height: $spacing-64;
+  padding: 0 $spacing-16;
   background-color: $white;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: $box-shadow;
   position: relative;
 
   display: flex;
@@ -14,36 +14,32 @@
     align-items: center;
 
     img {
-      height: 1.75rem;
+      height: $spacing-24;
     }
 
     h1 {
-      font-weight: 500;
-      font-size: 1.125rem;
+      font-weight: 400;
+      font-size: $font-size-base;
       display: none;
 
       border-left: 2px solid $secondary;
-      padding-left: 0.5rem;
-      margin-left: 0.5rem;
+      padding-left: $spacing-8;
+      margin-left: $spacing-8;
     }
   }
 
   &-menu {
-    margin-left: 1rem;
+    margin-left: $spacing-16;
 
-    a {
-      color: #2f3640;
-
-      &:hover {
-        text-decoration: none;
-      }
+    a:hover {
+      text-decoration: none;
     }
   }
 }
 
-@media screen and (min-width: 48rem) {
+@media screen and (min-width: 768px) {
   .navbar {
-    padding: 0 2rem;
+    padding: 0 $spacing-32;
 
     &-brand h1 {
       display: inline-block;

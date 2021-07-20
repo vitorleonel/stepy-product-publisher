@@ -8,7 +8,7 @@ const PublishedStep = ({ state }) => {
   return (
     <section className="steps-item">
       <div className="published">
-        <h2 className="bp3-heading">Congratulations!</h2>
+        <h2>Congratulations!</h2>
         <p>
           You have just published your product <strong>{state.title}</strong>.
         </p>
