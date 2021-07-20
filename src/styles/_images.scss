@@ -2,12 +2,12 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: -1rem;
+  margin: -$spacing-16;
 
   &__item {
     margin: 1rem;
-    width: calc(50% - 2rem);
-    height: 10rem;
+    width: calc(50% - #{$spacing-32});
+    height: 160px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -26,29 +26,29 @@
     &:not(&--add) {
       padding: 0;
 
-      .bp3-icon {
+      ion-icon {
         position: absolute;
         color: $white;
         display: none;
       }
 
       &:hover {
-        background-color: $red3;
+        background-color: #c23616;
 
         img {
           opacity: 25%;
         }
 
-        .bp3-icon {
+        ion-icon {
           display: block;
         }
       }
     }
 
     &--add p {
-      margin-top: 1rem;
+      margin-top: $spacing-8;
       margin-bottom: 0;
-      color: $gray1;
+      color: $text-secondary;
     }
   }
 }

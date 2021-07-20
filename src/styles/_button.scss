@@ -1,0 +1,41 @@
+.button {
+  font-size: $font-size-base;
+  padding: $spacing-12 $spacing-16;
+  border-radius: $spacing-4;
+  border: none;
+  background-color: transparent;
+  color: $black;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &__icon-right {
+    margin-left: $spacing-8;
+  }
+
+  &__icon-left {
+    margin-right: $spacing-8;
+  }
+
+  &--disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+  }
+
+  &--primary {
+    background-color: $primary;
+    color: $white;
+
+    &:hover {
+      background-color: darken($primary, 2.5%);
+    }
+  }
+
+  &--secondary {
+    background-color: $secondary;
+
+    &:hover {
+      background-color: darken($secondary, 100%);
+    }
+  }
+}

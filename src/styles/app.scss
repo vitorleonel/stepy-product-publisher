@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+@import 'variables';
+@import 'navbar';
+@import 'fields';
+@import 'button';
+@import 'card';
+@import 'steps';
+@import 'categories';
+@import 'images';
+@import 'progress-bar';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-size: $font-size-base;
+  font-family: $font-family;
+  font-weight: 300;
+  background-color: $body-bg;
+  color: $text-primary;
+}
+
+.published {
+  text-align: center;
+
+  .button {
+    margin: $spacing-32 auto 0;
+  }
+}
+
+.hidden {
+  display: none;
+}

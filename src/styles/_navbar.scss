@@ -1,38 +1,47 @@
-.bp3-navbar {
-  height: 4rem;
-  padding: 0 1rem;
+.navbar {
+  height: $spacing-64;
+  padding: 0 $spacing-16;
+  background-color: $white;
+  box-shadow: $box-shadow;
+  position: relative;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
 
-.bp3-navbar-heading {
-  display: flex;
-  align-items: center;
+  &-brand {
+    display: flex;
+    align-items: center;
 
-  img {
-    height: 1.75rem;
-  }
+    img {
+      height: $spacing-24;
+    }
 
-  h1 {
-    font-weight: 500;
-    font-size: 1.125rem;
-    display: none;
-
-    border-left: 2px solid $light-gray1;
-    padding-left: 0.5rem;
-    margin-left: 0.5rem;
-  }
-}
-
-@media screen and (min-width: 48rem) {
-  .bp3-navbar {
-    padding: 0 2rem;
-  }
-
-  .bp3-navbar-heading {
     h1 {
+      font-weight: 400;
+      font-size: $font-size-base;
+      display: none;
+
+      border-left: 2px solid $secondary;
+      padding-left: $spacing-8;
+      margin-left: $spacing-8;
+    }
+  }
+
+  &-menu {
+    margin-left: $spacing-16;
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navbar {
+    padding: 0 $spacing-32;
+
+    &-brand h1 {
       display: inline-block;
     }
   }
