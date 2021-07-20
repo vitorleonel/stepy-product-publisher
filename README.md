@@ -2,7 +2,7 @@
 
 **Stepy Product Publisher** is a fake application that represents the flow of publishing a product in our ecommerce that is also fake. If you want, you can see it working by [clicking here](https://stepy-product-publisher.netlify.app/).
 
-![image](https://user-images.githubusercontent.com/15618005/125452111-a239e7bc-001b-4bc9-a278-d93c8040857c.png)
+![image](https://user-images.githubusercontent.com/15618005/126352805-f9d309c4-f5d0-44a1-95ad-c4cd0655b86e.png)
 
 ## How to install
 
