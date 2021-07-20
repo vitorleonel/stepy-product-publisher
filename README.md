@@ -32,27 +32,20 @@ To start the application, run the following commands below within the project pa
 $ yarn test
 ```
 
-## Note
-
-I decided to use Blueprint's `Panel stack` feature to experiment more with the framework, however we could do this same flow using react-router.
-
 ## About component structure
 
 I decided to follow the structure of a component as we do here in the current company, so all components you will see a structure similar to the one below:
 
 ```
-ComponentName.tsx
-ComponentName.spec.tsx
-index.ts
-interfaces.tsx
+ComponentName.js
+index.js
 ```
 
 ## What would I keep doing or would I add
 
 From what is already in this repository, I would continue or add the following things:
 
-- I would continue to do the unit tests and improve them;
+- I would add the unit tests;
 - I would add E2E tests to ensure flow;
-- I would add a state management to be able to keep the data when I return a stream;
-- I would continue to adjust the lint and prettier config;
+- I would continue to adjust the lint's and prettier config;
 - ...among other things that a real project would require
