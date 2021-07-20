@@ -1,5 +1,11 @@
 import { useEffect, useReducer, useState } from 'react';
-import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
+import {
+  Switch,
+  Route,
+  Redirect,
+  useLocation,
+  useHistory,
+} from 'react-router-dom';
 
 import { reducer, initialState } from '../../store';
 
@@ -13,15 +19,20 @@ import PublishedStep from '../../pages/PublishedStep';
 
 const Steps = () => {
   const location = useLocation();
+  const history = useHistory();
 
   const [state, dispatch] = useReducer(reducer, initialState);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    calculateProgressBarHandle();
+    handleCheckDirectAccess();
+  }, []);
+
+  useEffect(() => {
+    handleCalculateProgressBar();
   }, [location.pathname]);
 
-  const calculateProgressBarHandle = () => {
+  const handleCalculateProgressBar = () => {
     const options = {
       '/categories': 1,
       '/basic-information': 2,
@@ -34,6 +45,12 @@ const Steps = () => {
     const totalOptions = Object.keys(options).length;
 
     setProgress((selectedOption / totalOptions) * 100);
+  };
+
+  const handleCheckDirectAccess = () => {
+    if (!['/', '/categories'].includes(location.pathname)) {
+      history.replace('/categories');
+    }
   };
 
   return (
